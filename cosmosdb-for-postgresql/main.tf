@@ -5,12 +5,19 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.66.0"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.9.1"
+    }
   }
-    required_version = ">= 1.1.0"
+  required_version = ">= 1.1.0"
 }
 
 provider "azurerm" {
   features {}
+}
+
+provider "time" {
 }
 
 resource "azurerm_cosmosdb_postgresql_cluster" "example" {
@@ -33,7 +40,7 @@ resource "time_sleep" "wait_20_minutes" {
 }
 
 resource "azurerm_cosmosdb_postgresql_cluster" "example-replica" {
-  depends_on = [time_sleep.wait_20_minutes]
+  depends_on                      = [time_sleep.wait_20_minutes]
   count                           = 1
   name                            = "cosmosdb-postgresql-replica-${count.index}"
   resource_group_name             = data.azurerm_resource_group.example.name
