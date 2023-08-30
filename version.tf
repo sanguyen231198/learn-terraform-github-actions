@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+  organization = "terraform-sanguyen"
+  workspaces {
+    name = "learn-terraform-github-actions"
+    }
+  }
   required_version = ">= 1.1.0"
   required_providers {
     azurerm = {
