@@ -33,4 +33,4 @@ jobs:
           speculative: true
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -force-copy
