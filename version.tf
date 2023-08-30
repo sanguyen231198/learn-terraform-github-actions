@@ -2,7 +2,7 @@ terraform {
   cloud {
   organization = "terraform-sanguyen"
   workspaces {
-    name = "learn-terraform-github-actions"
+    name = "learn-terraform-github-actions-test"
     }
   }
   required_version = ">= 1.1.0"
